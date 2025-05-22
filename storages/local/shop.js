@@ -40,9 +40,9 @@ export class InventoryModel {
   static async sell({ input, product }) {
     const newSell = {
       id: randomUUID(),
-      productId: product.id,
-      saleDate: today,
-      totalPrice: input.quantity * product.price,
+      product_id: product.id,
+      sale_date: today,
+      total_price: input.quantity * product.price,
       ...input,
     };
 
@@ -52,7 +52,7 @@ export class InventoryModel {
     }
     inventory[productIndex] = {
       ...inventory[productIndex],
-      actualStock: inventory[productIndex].actualStock - input.quantity,
+      actual_stock: inventory[productIndex].actual_stock - input.quantity,
     };
     sell.push(newSell);
 
@@ -68,8 +68,8 @@ export class InventoryModel {
 
     inventory[productIndex] = {
       ...inventory[productIndex],
-      actualStock: inventory[productIndex].actualStock + input.actualStock,
-      minimunStock: input.minimunStock,
+      actual_stock: inventory[productIndex].actual_stock + input.actual_stock,
+      minimun_stock: input.minimun_stock,
       price: input.price,
       title: input.title,
     };

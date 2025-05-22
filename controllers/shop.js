@@ -1,4 +1,5 @@
-import { InventoryModel } from "../storages/shop.js";
+/* import { InventoryModel } from "../storages/local/shop.js"; */
+import { InventoryModel } from "../storages/database/shop.js";
 import {
   validateProduct,
   validatePartialProduct,
@@ -18,6 +19,7 @@ export class InventoryController {
 
   static async getAllNew(req, res) {
     const { inventory, suppliers } = await InventoryModel.getAll();
+    console.log(suppliers);
     res.render("add-new", { inventory: inventory, suppliers: suppliers });
   }
 
@@ -92,12 +94,12 @@ export class InventoryController {
   }
 
   static async create(req, res) {
+    console.log(req.body);
     const result = validateProduct(req.body);
 
     if (!result.success) {
       return res.status(400).json({ error: JSON.parse(result.error.message) });
     }
-
     await InventoryModel.create({ input: result.data });
 
     return res.redirect("/");
@@ -118,8 +120,8 @@ export class InventoryController {
   static async update(req, res) {
     const result = validatePartialProduct({
       ...req.body,
-      actualStock: Number(req.body.actualStock),
-      minimunStock: Number(req.body.minimunStock),
+      actual_stock: Number(req.body.actual_stock),
+      minimun_stock: Number(req.body.minimun_stock),
       price: Number(req.body.price),
     });
 

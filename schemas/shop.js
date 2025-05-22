@@ -1,9 +1,10 @@
 import z from "zod";
-import { InventoryModel } from "../storages/shop.js";
+/* import { InventoryModel } from "../storages/local/shop.js"; */
+import { InventoryModel } from "../storages/database/shop.js";
 
-/* const supplierIdList = await supportIdSupplier();
+/* const supplierIdList = await supportid_supplier();
 
-export async function supportIdSupplier() {
+export async function supportid_supplier() {
   const { inventory, suppliers } = await InventoryModel.getAll();
   const supplierIdList = [];
 
@@ -22,8 +23,8 @@ const inventorySchema = z.object({
   }),
   price: z.number().positive(),
   description: z.string(),
-  actualStock: z.number().int().nonnegative(),
-  minimunStock: z.number().int().positive(),
+  actual_stock: z.number().int().nonnegative(),
+  minimun_stock: z.number().int().positive(),
   category: z.enum(
     ["men's clothing", "jewelery", "electronics", "women's clothing"],
     {
@@ -31,7 +32,7 @@ const inventorySchema = z.object({
       invalid_type_error: "category must be one of the enum values",
     }
   ),
-  idSupplier: z.string({
+  id_supplier: z.string({
     required_error: "supplier is required.",
     invalid_type_error: "supplier must be a string.",
   }),
@@ -67,8 +68,8 @@ export function validateProduct(input) {
   const transformedInput = {
     ...input,
     price: Number(input.price),
-    actualStock: Number(input.actualStock),
-    minimunStock: Number(input.minimunStock),
+    actual_stock: Number(input.actual_stock),
+    minimun_stock: Number(input.minimun_stock),
   };
 
   return inventorySchema.safeParse(transformedInput);
@@ -78,12 +79,12 @@ export function validatePartialProduct(input) {
   const transformedInput = {
     ...input,
     ...(input.price !== undefined && { price: Number(input.price) }),
-    ...(input.actualStock !== undefined && {
-      actualStock: Number(input.actualStock),
+    ...(input.actual_stock !== undefined && {
+      actual_stock: Number(input.actual_stock),
     }),
 
-    ...(input.minimunStock !== undefined && {
-      minimunStock: Number(input.minimunStock),
+    ...(input.minimun_stock !== undefined && {
+      minimun_stock: Number(input.minimun_stock),
     }),
   };
 

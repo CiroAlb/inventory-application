@@ -24,14 +24,14 @@
       <label for="description">description: </label>
       <input type="text" name="description" id="description" required />
 
-      <label for="actualStock">stock a ingresar: </label>
-      <input type="number" name="actualStock" id="actualStock" required />
+      <label for="actual_stock">stock a ingresar: </label>
+      <input type="number" name="actual_stock" id="actual_stock" required />
 
-      <label for="minimunStock">minimun stock: </label>
-      <input type="number" name="minimunStock" id="minimunStock" required />
+      <label for="minimun_stock">minimun stock: </label>
+      <input type="number" name="minimun_stock" id="minimun_stock" required />
 
-      <label for="idSupplier">supplier</label>
-      <select name="idSupplier" id="idSupplier">
+      <label for="id_supplier">supplier</label>
+      <select name="id_supplier" id="id_supplier">
         <% suppliers.map((supplier) => { %>
         <option value="<%= supplier.id %>"><%= supplier.name %></option>
         <% }) %>

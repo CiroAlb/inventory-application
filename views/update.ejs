@@ -6,10 +6,10 @@
     <title>re stock</title>
   </head>
   <body>
-    <form action="/re-stock/<%= product.id %>" method="POST">
+    <form action="/update/<%= product.id %>" method="POST">
       <h1>MODIFICAR: <%= product.title %></h1>
-      <label for="actualStock">AGREGAR STOCK:</label>
-      <input type="number" name="actualStock" id="actualStock" value="0" />
+      <label for="actual_stock">AGREGAR STOCK:</label>
+      <input type="number" name="actual_stock" id="actual_stock" value="0" />
 
       <label for="title">change name:</label>
       <input type="text" name="title" id="title" value="<%= product.title %>" />
@@ -22,12 +22,12 @@
         value="<%= product.price %>"
       />
 
-      <label for="minimunStock">minimun stock:</label>
+      <label for="minimun_stock">minimun stock:</label>
       <input
         type="number"
-        name="minimunStock"
-        id="minimunStock"
-        value="<%= product.minimunStock %>"
+        name="minimun_stock"
+        id="minimun_stock"
+        value="<%= product.minimun_stock %>"
       />
 
       <button type="submit">Submit</button>

@@ -29,11 +29,11 @@
             <th><%= product.title %></th>
             <td><%= product.price %></td>
             <td><%= product.category %></td>
-            <td><%= product.actualStock %></td>
-            <td><%= product.minimunStock %></td>
+            <td><%= product.actual_stock %></td>
+            <td><%= product.minimun_stock %></td>
             <td>
-              <a href="/re-stock/<%= product.id %>">
-                <button>Re-stock</button>
+              <a href="/update/<%= product.id %>">
+                <button>update</button>
               </a>
             </td>
             <td>
@@ -42,7 +42,7 @@
               </a>
             </td>
             <td>
-              <a href="/supplier/<%= product.idSupplier %>">
+              <a href="/supplier/<%= product.id_supplier %>">
                 <button>SUPPLIER DATA</button>
               </a>
             </td>
@@ -103,10 +103,10 @@
           <% sell.map((s) => { %>
           <tr>
             <th scope="row"><%= s.id %></th>
-            <th><%= s.productId %></th>
+            <th><%= s.product_id %></th>
             <td><%= s.quantity %></td>
-            <td><%= s.saleDate %></td>
-            <td><%= s.totalPrice %></td>
+            <td><%= s.sale_date %></td>
+            <td><%= s.total_price %></td>
           </tr>
           <% }) %>
         </tbody>
