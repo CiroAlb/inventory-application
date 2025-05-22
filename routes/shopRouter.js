@@ -5,8 +5,8 @@ export const shopRouter = Router();
 
 shopRouter.get("/", InventoryController.getAll);
 
-shopRouter.get("/re-stock/:id", InventoryController.getReStock);
-shopRouter.post("/re-stock/:id", InventoryController.update);
+shopRouter.get("/update/:id", InventoryController.getUpdate);
+shopRouter.post("/update/:id", InventoryController.update);
 
 shopRouter.get("/add-new", InventoryController.getAllNew);
 shopRouter.post("/add-new", InventoryController.create);

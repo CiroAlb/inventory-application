@@ -5,9 +5,9 @@ const inventorySchema = z.object({
     invalid_type_error: "title must be a string",
     required_error: "title is required.",
   }),
-  price: z.number().min(0),
+  price: z.number().positive(),
   description: z.string(),
-  actualStock: z.number().int().positive(),
+  actualStock: z.number().int().nonnegative(),
   minimunStock: z.number().int().positive(),
   category: z.enum(
     ["men's clothing", "jewelery", "electronics", "women's clothing"],

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>re stock</title>
+  </head>
+  <body>
+    <form action="/re-stock/<%= product.id %>" method="POST">
+      <h1>MODIFICAR: <%= product.title %></h1>
+      <label for="actualStock">AGREGAR STOCK:</label>
+      <input type="number" name="actualStock" id="actualStock" value="0" />
+
+      <label for="title">change name:</label>
+      <input type="text" name="title" id="title" value="<%= product.title %>" />
+
+      <label for="price">change price:</label>
+      <input
+        type="number"
+        name="price"
+        id="price"
+        value="<%= product.price %>"
+      />
+
+      <label for="minimunStock">minimun stock:</label>
+      <input
+        type="number"
+        name="minimunStock"
+        id="minimunStock"
+        value="<%= product.minimunStock %>"
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

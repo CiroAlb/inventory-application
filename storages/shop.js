@@ -45,6 +45,9 @@ export class InventoryModel {
     inventory[productIndex] = {
       ...inventory[productIndex],
       actualStock: inventory[productIndex].actualStock + input.actualStock,
+      minimunStock: input.minimunStock,
+      price: input.price,
+      title: input.title,
     };
 
     return inventory[productIndex];

@@ -6,7 +6,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use("/", shopRouter);
 
-app.use("/re-stock/:id", shopRouter);
+app.use("/update/:id", shopRouter);
 
 app.use("/add-new", shopRouter);
 

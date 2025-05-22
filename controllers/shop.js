@@ -20,7 +20,7 @@ export class InventoryController {
     res.render("add-supplier");
   }
 
-  static async getReStock(req, res) {
+  static async getUpdate(req, res) {
     const { id } = req.params;
     const { inventory, supplier } = await InventoryModel.getAll();
     const product = inventory.find((item) => item.id === id);
@@ -29,7 +29,7 @@ export class InventoryController {
       return res.status(404).send("Producto no encontrado");
     }
 
-    res.render("re-stock", { product });
+    res.render("update", { product });
   }
 
   static async getDelete(req, res) {
@@ -84,6 +84,8 @@ export class InventoryController {
     const result = validatePartialProduct({
       ...req.body,
       actualStock: Number(req.body.actualStock),
+      minimunStock: Number(req.body.minimunStock),
+      price: Number(req.body.price),
     });
 
     if (!result.success) {
