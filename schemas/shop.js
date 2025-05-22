@@ -1,4 +1,19 @@
 import z from "zod";
+import { InventoryModel } from "../storages/shop.js";
+
+/* const supplierIdList = await supportIdSupplier();
+
+export async function supportIdSupplier() {
+  const { inventory, suppliers } = await InventoryModel.getAll();
+  const supplierIdList = [];
+
+  suppliers.map((supplier) => supplierIdList.push(supplier.id));
+  return supplierIdList;
+} */
+
+const sellSchema = z.object({
+  quantity: z.number().int().positive(),
+});
 
 const inventorySchema = z.object({
   title: z.string({
@@ -16,19 +31,10 @@ const inventorySchema = z.object({
       invalid_type_error: "category must be one of the enum values",
     }
   ),
-  idSupplier: z.enum(
-    [
-      "5e6f7g8h-5555-6666-7777-eeeeeeeeeeee",
-      "4d5e6f7g-4444-5555-6666-dddddddddddd",
-      "3c4d5e6f-3333-4444-5555-cccccccccccc",
-      "2b3c4d5e-2222-3333-4444-bbbbbbbbbbbb",
-      "1a2b3c4d-1111-2222-3333-aaaaaaaaaaaa",
-    ],
-    {
-      required_error: "supplier is required.",
-      invalid_type_error: "supplier must be one of the enum values",
-    }
-  ),
+  idSupplier: z.string({
+    required_error: "supplier is required.",
+    invalid_type_error: "supplier must be a string.",
+  }),
 });
 
 const supplierSchema = z.object({
@@ -86,4 +92,8 @@ export function validatePartialProduct(input) {
 
 export function validateSupplier(input) {
   return supplierSchema.safeParse(input);
+}
+
+export function validateSell(input) {
+  return sellSchema.safeParse(input);
 }

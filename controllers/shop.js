@@ -3,17 +3,52 @@ import {
   validateProduct,
   validatePartialProduct,
   validateSupplier,
+  validateSell,
 } from "../schemas/shop.js";
 
 export class InventoryController {
   static async getAll(req, res) {
-    const { inventory, supplier } = await InventoryModel.getAll();
-    res.render("index", { inventory: inventory, suppliers: supplier });
+    const { inventory, suppliers, sell } = await InventoryModel.getAll();
+    res.render("index", {
+      inventory: inventory,
+      suppliers: suppliers,
+      sell: sell,
+    });
   }
 
   static async getAllNew(req, res) {
     const { inventory, suppliers } = await InventoryModel.getAll();
     res.render("add-new", { inventory: inventory, suppliers: suppliers });
+  }
+
+  static async getSell(req, res) {
+    const { id } = req.params;
+    const { inventory, suppliers } = await InventoryModel.getAll();
+    const product = inventory.find((item) => item.id === id);
+
+    if (!product) {
+      return res.status(404).send("Producto no encontrado");
+    }
+
+    res.render("sell", { product: product, suppliers: suppliers });
+  }
+
+  static async sell(req, res) {
+    const { id } = req.params;
+    const result = validateSell({
+      ...req.body,
+      quantity: Number(req.body.quantity),
+    });
+    const { inventory, supplier } = await InventoryModel.getAll();
+    const product = inventory.find((item) => item.id === id);
+
+    if (!result.success) {
+      return res.status(400).json({ error: JSON.parse(result.error.message) });
+    }
+
+    await InventoryModel.sell({ input: result.data, product: product });
+
+    return res.redirect("/");
   }
 
   static async getAddSupplier(req, res) {
@@ -46,8 +81,8 @@ export class InventoryController {
 
   static async getSupplier(req, res) {
     const { id } = req.params;
-    const { inventory, supplier } = await InventoryModel.getAll();
-    const findedSupplier = supplier.find((s) => s.id === id);
+    const { inventory, suppliers } = await InventoryModel.getAll();
+    const findedSupplier = suppliers.find((s) => s.id === id);
 
     if (!findedSupplier) {
       return res.status(404).send("Producto no encontrado");

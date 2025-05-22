@@ -46,6 +46,11 @@
                 <button>SUPPLIER DATA</button>
               </a>
             </td>
+            <td>
+              <a href="/sell/<%= product.id %>">
+                <button>NEW SALE</button>
+              </a>
+            </td>
           </tr>
           <% }) %>
         </tbody>
@@ -77,6 +82,31 @@
             <td><%= supplier.contacto %></td>
             <td><%= supplier.telefono %></td>
             <td><%= supplier.direccion %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <table>
+        <caption>
+          SELL
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">product-id</th>
+            <th scope="col">quantity</th>
+            <th scope="col">sale-date</th>
+            <th scope="col">total-price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% sell.map((s) => { %>
+          <tr>
+            <th scope="row"><%= s.id %></th>
+            <th><%= s.productId %></th>
+            <td><%= s.quantity %></td>
+            <td><%= s.saleDate %></td>
+            <td><%= s.totalPrice %></td>
           </tr>
           <% }) %>
         </tbody>

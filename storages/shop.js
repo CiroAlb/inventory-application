@@ -6,11 +6,13 @@ const require = createRequire(import.meta.url);
 export const readJSON = (path) => require(path);
 
 const inventory = readJSON("../products.json");
-const supplier = readJSON("../suppliers.json");
+const suppliers = readJSON("../suppliers.json");
+const sell = readJSON("../sell.json");
+const today = new Date();
 
 export class InventoryModel {
   static async getAll() {
-    return { inventory, supplier };
+    return { inventory, suppliers, sell };
   }
 
   static async create({ input }) {
@@ -30,9 +32,31 @@ export class InventoryModel {
       ...input,
     };
 
-    supplier.push(newSupplier);
+    suppliers.push(newSupplier);
 
     return newSupplier;
+  }
+
+  static async sell({ input, product }) {
+    const newSell = {
+      id: randomUUID(),
+      productId: product.id,
+      saleDate: today,
+      totalPrice: input.quantity * product.price,
+      ...input,
+    };
+
+    const productIndex = inventory.findIndex((p) => p.id === product.id);
+    if (productIndex === -1) {
+      return false;
+    }
+    inventory[productIndex] = {
+      ...inventory[productIndex],
+      actualStock: inventory[productIndex].actualStock - input.quantity,
+    };
+    sell.push(newSell);
+
+    return newSell;
   }
 
   static async update({ id, input }) {

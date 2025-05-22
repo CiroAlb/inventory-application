@@ -11,7 +11,8 @@ shopRouter.post("/update/:id", InventoryController.update);
 shopRouter.get("/add-new", InventoryController.getAllNew);
 shopRouter.post("/add-new", InventoryController.create);
 
-shopRouter.get("/sell", InventoryController.getAll);
+shopRouter.get("/sell/:id", InventoryController.getSell);
+shopRouter.post("/sell/:id", InventoryController.sell);
 
 shopRouter.get("/delete/:id", InventoryController.getDelete);
 shopRouter.post("/delete/:id", InventoryController.delete);

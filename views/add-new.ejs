@@ -32,21 +32,9 @@
 
       <label for="idSupplier">supplier</label>
       <select name="idSupplier" id="idSupplier">
-        <option value="1a2b3c4d-1111-2222-3333-aaaaaaaaaaaa">
-          Distribuidora Andina
-        </option>
-        <option value="2b3c4d5e-2222-3333-4444-bbbbbbbbbbbb">
-          TechParts S.A.
-        </option>
-        <option value="3c4d5e6f-3333-4444-5555-cccccccccccc">
-          Moda Global Ltd.
-        </option>
-        <option value="4d5e6f7g-4444-5555-6666-dddddddddddd">
-          Joyería del Sol
-        </option>
-        <option value="5e6f7g8h-5555-6666-7777-eeeeeeeeeeee">
-          "Electro Express"
-        </option>
+        <% suppliers.map((supplier) => { %>
+        <option value="<%= supplier.id %>"><%= supplier.name %></option>
+        <% }) %>
       </select>
 
       <button type="submit">Submit</button>

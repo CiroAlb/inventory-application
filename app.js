@@ -12,7 +12,7 @@ app.use("/add-new", shopRouter);
 
 app.use("/add-supplier", shopRouter);
 
-app.use("/sell", shopRouter);
+app.use("/sell/:id", shopRouter);
 
 app.use("/delete/:id", shopRouter);
 

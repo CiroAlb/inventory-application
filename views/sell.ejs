@@ -1,8 +1,23 @@
-<label for="cars">Choose a car:</label>
-<select name="produc" id="cars">
-  <% inventory.map((product) => { %>
-  <option value="<% product.id %>">
-    <% product.id %>//<% product.title %>
-  </option>
-  <% }) %>
-</select>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEW PRODUCT SALE</title>
+  </head>
+  <body>
+    <form action="/sell/<%= product.id %>" method="POST">
+      <h1>SELL: <%= product.title %></h1>
+
+      <label for="quantity">chose quantity</label>
+      <input
+        type="number"
+        name="quantity"
+        id="quantity"
+        max="<%= product.actualStock %>"
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
