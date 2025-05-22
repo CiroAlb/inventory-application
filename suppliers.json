@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1a2b3c4d-1111-2222-3333-aaaaaaaaaaaa",
+    "name": "Distribuidora Andina",
+    "contacto": "Laura Méndez",
+    "telefono": "+54 11 4567 8901",
+    "direccion": "Av. Rivadavia 1234, Buenos Aires, Argentina"
+  },
+  {
+    "id": "2b3c4d5e-2222-3333-4444-bbbbbbbbbbbb",
+    "name": "TechParts S.A.",
+    "contacto": "Javier González",
+    "telefono": "+34 91 123 4567",
+    "direccion": "Calle Alcalá 200, Madrid, España"
+  },
+  {
+    "id": "3c4d5e6f-3333-4444-5555-cccccccccccc",
+    "name": "Moda Global Ltd.",
+    "contacto": "Ana Rocha",
+    "telefono": "+55 21 99876 5432",
+    "direccion": "Rua das Flores 77, Río de Janeiro, Brasil"
+  },
+  {
+    "id": "4d5e6f7g-4444-5555-6666-dddddddddddd",
+    "name": "Joyería del Sol",
+    "contacto": "Martín Torres",
+    "telefono": "+52 55 3210 9876",
+    "direccion": "Av. Reforma 1001, Ciudad de México, México"
+  },
+  {
+    "id": "5e6f7g8h-5555-6666-7777-eeeeeeeeeeee",
+    "name": "Electro Express",
+    "contacto": "Daniela López",
+    "telefono": "+1 305 555 1234",
+    "direccion": "1250 Coral Way, Miami, FL, USA"
+  }
+]

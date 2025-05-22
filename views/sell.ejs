@@ -1,0 +1,8 @@
+<label for="cars">Choose a car:</label>
+<select name="produc" id="cars">
+  <% inventory.map((product) => { %>
+  <option value="<% product.id %>">
+    <% product.id %>//<% product.title %>
+  </option>
+  <% }) %>
+</select>

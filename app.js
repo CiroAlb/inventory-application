@@ -5,15 +5,18 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use("/", shopRouter);
-app.use("/about-us", function (req, res) {
-  res.render("about-us", {});
-});
-app.use("/shop", function (req, res) {
-  res.render("shop", {});
-});
-app.use("/contact-us", function (req, res) {
-  res.render("contact-us", {});
-});
+
+app.use("/re-stock/:id", shopRouter);
+
+app.use("/add-new", shopRouter);
+
+app.use("/add-supplier", shopRouter);
+
+app.use("/sell", shopRouter);
+
+app.use("/delete/:id", shopRouter);
+
+app.use("/supplier/:id", shopRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Express app listening on port ${PORT}!`));

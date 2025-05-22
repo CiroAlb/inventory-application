@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add supplier</title>
+  </head>
+  <body>
+    <form action="/add-supplier" method="POST">
+      <label for="name">name</label>
+      <input type="text" name="name" id="name" required />
+
+      <label for="contacto">contacto</label>
+      <input type="text" name="contacto" id="contacto" required />
+
+      <label for="telefono">telefono</label>
+      <input type="tel" name="telefono" id="telefono" required />
+
+      <label for="direccion">direccion</label>
+      <input type="text" name="direccion" id="direccion" required />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

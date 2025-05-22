@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>re stock</title>
+  </head>
+  <body>
+    <form action="/re-stock/<%= product.id %>" method="POST">
+      <h1>Agregar stock a: <%= product.title %></h1>
+      <label for="actualStock">Stock a ingresar:</label>
+      <input type="number" name="actualStock" id="actualStock" required />
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

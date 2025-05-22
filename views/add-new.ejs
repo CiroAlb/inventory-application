@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new product</title>
+  </head>
+  <body>
+    <form action="/add-new" method="POST">
+      <label for="title">name: </label>
+      <input type="text" name="title" id="title" required />
+
+      <label for="price">price: </label>
+      <input type="number" name="price" id="price" required />
+
+      <label for="category">category: </label>
+      <select name="category" id="cateogry">
+        <option value="men's clothing">men's clothing</option>
+        <option value="women's clothing">women's clothing</option>
+        <option value="electronics">electronics</option>
+        <option value="jewelery">jewelery</option>
+      </select>
+
+      <label for="description">description: </label>
+      <input type="text" name="description" id="description" required />
+
+      <label for="actualStock">stock a ingresar: </label>
+      <input type="number" name="actualStock" id="actualStock" required />
+
+      <label for="minimunStock">minimun stock: </label>
+      <input type="number" name="minimunStock" id="minimunStock" required />
+
+      <label for="idSupplier">supplier</label>
+      <select name="idSupplier" id="idSupplier">
+        <option value="1a2b3c4d-1111-2222-3333-aaaaaaaaaaaa">
+          Distribuidora Andina
+        </option>
+        <option value="2b3c4d5e-2222-3333-4444-bbbbbbbbbbbb">
+          TechParts S.A.
+        </option>
+        <option value="3c4d5e6f-3333-4444-5555-cccccccccccc">
+          Moda Global Ltd.
+        </option>
+        <option value="4d5e6f7g-4444-5555-6666-dddddddddddd">
+          Joyería del Sol
+        </option>
+        <option value="5e6f7g8h-5555-6666-7777-eeeeeeeeeeee">
+          "Electro Express"
+        </option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
